@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import Login from './pages/Login/Login';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Recipies from './pages/Recipies/Recipies';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 
 function App() {
+  document.title ="The Healtyish "
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route>
+        <Header />
+        <Switch>
+          <Redirect exact from="/" to="/login" />
+          <Route path='/login' component={Login}/>
+          <Route path='/dashboard' component={Dashboard}/>
+          <Route path='/recipies' component={Recipies}/>
+        </Switch>
+      </Route> 
     </div>
   );
 }
