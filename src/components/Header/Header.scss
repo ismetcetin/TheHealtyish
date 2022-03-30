@@ -1,0 +1,20 @@
+.header{
+    background-color: lightblue;
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__button-container{
+        margin-right: 1rem;
+        width: 20%;
+        display: flex;
+        gap: 2rem;
+    }
+    &__logo{
+        width:10%
+    }
+    &__img{
+        width:100%
+    }
+}

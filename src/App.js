@@ -15,7 +15,7 @@ function App() {
   document.title ="The Healtyish "
   return (
     <div className="App">
-      <Route>
+      <Router>
         <Header />
         <Switch>
           <Redirect exact from="/" to="/login" />
@@ -23,7 +23,7 @@ function App() {
           <Route path='/dashboard' component={Dashboard}/>
           <Route path='/recipies' component={Recipies}/>
         </Switch>
-      </Route> 
+      </Router> 
     </div>
   );
 }

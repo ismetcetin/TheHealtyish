@@ -1,0 +1,96 @@
+@use './variables';
+@use './colors' as *;
+
+@mixin tablet {
+    @media (min-width: variables.$tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: variables.$desktop-breakpoint) {
+        @content;
+    }
+}
+
+@mixin tablet-page-header {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+}
+
+@mixin tablet-subheader {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+}
+
+@mixin tablet-labels-links-buttons {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 600;
+}
+
+@mixin tablet-table-header {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $secondary-color-one;
+}
+
+@mixin tablet-body-large {
+    font-size: 1rem;
+    line-height: 1.75rem;
+}
+
+@mixin tablet-body-medium {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+}
+
+@mixin tablet-body-small {
+    font-size: 0.75rem;
+    line-height: 1.128rem;
+}
+
+@mixin mobile-page-header {
+    font-size: 1.75rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+}
+
+@mixin mobile-subheader {
+    font-size: 1.25rem;
+    line-height: 2.25rem;    
+    font-weight: 600;
+}
+
+@mixin mobile-labels-link-buttons {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+}
+
+@mixin mobile-table-header {
+    font-size: 0.688rem;
+    line-height: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $secondary-color-one;
+}
+
+@mixin mobile-body-large {
+    font-size: 0.938rem;
+    line-height: 1.625rem;
+}
+
+@mixin mobile-body-medium {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+}
+
+@mixin mobile-body-small {
+    font-size: 0.688rem;
+    line-height: 1rem;
+}
