@@ -1,9 +1,9 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Header from './components/Header/Header';
 import Login from './pages/Login/Login';
 import Dashboard from './pages/Dashboard/Dashboard';
-import Recipies from './pages/Recipies/Recipies';
+import Recipes from './pages/Recipes/Recipes';
 import {
   BrowserRouter as Router,
   Redirect,
@@ -21,7 +21,7 @@ function App() {
           <Redirect exact from="/" to="/login" />
           <Route path='/login' component={Login}/>
           <Route path='/dashboard' component={Dashboard}/>
-          <Route path='/recipies' component={Recipies}/>
+          <Route path='/recipes' component={Recipes}/>
         </Switch>
       </Router> 
     </div>

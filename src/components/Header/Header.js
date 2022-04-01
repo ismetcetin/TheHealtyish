@@ -22,14 +22,14 @@ export default function Header() {
             Dashboard
           </NavLink>
           <NavLink
-            to="/recipies"
+            to="/recipes"
             className={(isActive) =>
               "header__button" +
               " " +
               (isActive ? "header__button--active" : "")
             }
           >
-            Recipies
+            Recipes
           </NavLink>
         </div>
       </div>
