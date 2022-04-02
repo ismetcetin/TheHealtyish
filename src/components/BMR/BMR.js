@@ -103,7 +103,7 @@ class bmr extends Component {
     }
 
     return (
-      <div id="bmrcalc" className="form">
+      <div className="form">
         <div className="form__wrapper">
           <h2 className="form__title">BMR &amp; Daily Calorie Calculator</h2>
           {error}
