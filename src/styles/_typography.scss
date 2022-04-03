@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Bitter";
+    src: url("../assets/fonts/Bitter-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+@font-face {
+    font-family: "Bitter";
+    src: url("../assets/fonts/Bitter-VariableFont_wght.ttf") format("ttf");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  $font-stack: 'Bitter';

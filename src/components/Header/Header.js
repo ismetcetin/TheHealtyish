@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import logo from '../../assets/images/logo-trans.png';
 import './Header.scss';
 
@@ -8,7 +9,7 @@ export default function Header() {
     <header className="header">
       <div className="header__container">
         <div className="header__logo">
-          <img className="header__img" src={logo} alt="The Healyish Logo" />
+          <Link to='/Dashboard' className="header__img--link"><img className="header__img" src={logo} alt="The Healyish Logo" /></Link>
         </div>
         <div className="header__button-container">
           <NavLink

@@ -1,20 +1,64 @@
-.header{
-    background-color: #bed2c4;
-    &__container{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+@use "../../styles/mixins" as *;
+
+.header {
+  background-color: #bed2c4;
+  width: 100vw;
+  box-sizing: border-box;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 15.25rem;
+    padding: 0 1rem;
+
+    @include tablet {
+      flex-direction: row;
     }
-    &__button-container{
-        margin-right: 1rem;
-        width: 20%;
-        display: flex;
-        gap: 2rem;
+  }
+  &__button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    position: relative;
+    top: -33px;
+    width: 30rem;
+
+    @include tablet {
+      top: 0;
+      padding-right: 10rem;
     }
-    &__logo{
-        width:10%
+  }
+  &__logo {
+    width: 150px;
+    position: relative;
+    top: -14px;
+    @include tablet {
+      top: 0;
     }
-    &__img{
-        width:100%
+  }
+  &__img {
+    width: 100%;
+  }
+  &__button {
+    border: 1px solid orange;
+    border-radius: 10px;
+    width: 15rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    background-color: whitesmoke;
+    color: darkslategray;
+    font-size: 1.3rem;
+    &:hover {
+      transform: scale(1.2);
     }
+
+    &--active {
+      background-color: darkslategray;
+      color: white;
+    }
+  }
 }

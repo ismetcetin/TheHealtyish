@@ -1,5 +1,8 @@
+@use './styles/typography' as *;
+
 * {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: $font-stack;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   text-decoration: none;
