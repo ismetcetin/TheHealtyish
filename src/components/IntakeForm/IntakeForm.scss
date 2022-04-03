@@ -1,0 +1,13 @@
+.form__calorie{
+    display: flex;
+    flex-direction: column;
+    &__wrapper{
+        box-sizing: border-box;
+        background-color: #f4f1f1;
+        padding: 0;
+        margin: 1rem 0;
+        border: 1px solid orange;
+        width: 20vw;
+        height: 40vh;
+    }
+}
