@@ -1,51 +1,59 @@
 import "./IntakeForm.scss";
-import React from "react";
+import React, {useRef} from "react";
 
-export default function IntakeForm({
-  bmr,
-  deficit,
-  meal,
-  ingr1,
-  ingr2,
-  ingr3,
-  ingr4,
-  ingr5,
-}) {
+export default function IntakeForm({bmr, totalCal, deficit, mealName, ingredients, addMealName, addNewIngr, updateState, mealCards}) {
+  const inputRef = useRef();
+ 
+  function handleNewIngr () {
+    addNewIngr(inputRef.current.value);
+    inputRef.current.value = "";
+  }
+ 
+  function handleMealCard (e) {
+    e.preventDefault();
+    const mealCardData = {
+      mealName,
+      ingredients,
+      totalCal
+    }
+    updateState("mealCards", [...mealCards, mealCardData])
+    updateState("ingredients", [])
+  }
+
   return (
     <section className="form__calorie__wrapper">
       <h2 className="form__title">Calorie Intake</h2>
       <div className="form__bmr">{bmr}</div>
+      <div className="form__totalCal">{totalCal}</div>
       <div className="form__deficit">{deficit}</div>
-      <form className="form__calorie">
+      <form className="form__calorie" onSubmit={handleMealCard}>
         <label className="form__label">Meal</label>
-        <select name="meal" value={meal} className="form__meal">
-          <option type="text" value="breakfast">
+        <select name="meal" className="form__meal" value={mealName} onChange={(e) => addMealName(e.target.value)}>
+        <option type="text" value="" disabled hidden>
+            Plese Select Your Meal...
+          </option>
+          <option type="text" value="Breakfast">
             Breakfast
           </option>
-          <option type="text" value="snackOne">
+          <option type="text" value="Snack-1">
             Snack-1
           </option>
-          <option type="text" value="lunch">
+          <option type="text" value="Lunch">
             Lunch
           </option>
-          <option type="text" value="snackTwo">
+          <option type="text" value="Snack-2">
             Snack-2
           </option>
-          <option type="text" value="dinner">
+          <option type="text" value="Dinner">
             Dinner
           </option>
         </select>
-        <label className="form__label">Ingridient 1:</label>
-        <input type="text" name="ingr1" value={ingr1} className="form__input"></input>
-        <label className="form__label">Ingridient 2:</label>
-        <input type="text" name="ingr2" value={ingr2} className="form__input"></input>
-        <label className="form__label">Ingridient 3:</label>
-        <input type="text" name="ingr3" value={ingr3} className="form__input"></input>
-        <label className="form__label">Ingridient 4:</label>
-        <input type="text" name="ingr4" value={ingr4} className="form__input"></input>
-        <label className="form__label">Ingridient 5:</label>
-        <input type="text" name="ingr5" value={ingr5} className="form__input"></input>
+        <label className="form__label">Ingridient:</label>
+        <input type="text" name="ingr" ref={inputRef} className="form__input"></input>
+        <button>Create Meal Card</button>
       </form>
+      <button onClick={handleNewIngr}>+</button>
+      {ingredients.map(ingr => <p key={ingr}>{ingr}</p>  )}
     </section>
   );
 }
