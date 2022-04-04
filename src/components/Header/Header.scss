@@ -9,11 +9,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 15.25rem;
+    height: 10.25rem;
     padding: 0 1rem;
 
     @include tablet {
       flex-direction: row;
+      height: 8.25rem;
     }
   }
   &__button-container {
@@ -22,11 +23,11 @@
     gap: 3rem;
     position: relative;
     top: -33px;
-    width: 30rem;
+    width: 18rem;
 
     @include tablet {
       top: 0;
-      padding-right: 10rem;
+      padding-right: 3rem;
     }
   }
   &__logo {
@@ -51,7 +52,6 @@
     font-weight: 600;
     background-color: whitesmoke;
     color: darkslategray;
-    font-size: 1.3rem;
     &:hover {
       transform: scale(1.2);
     }
