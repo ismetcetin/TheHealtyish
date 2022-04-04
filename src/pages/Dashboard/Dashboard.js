@@ -11,9 +11,8 @@ const SERVER_URL = "http://localhost:8080/dashboard/1";
 export default class Dashboard extends Component {
   state = {
     user_id: "1",
-    mealName: "",
-    ingredients: [],
-    totalCal: 0,
+    meals:[],
+    ingredients:[],
     totalCalIntake: 0,
     bmr: 0,
     calDeficit: 0,
@@ -25,9 +24,7 @@ export default class Dashboard extends Component {
     axios.get(`${SERVER_URL}`)
     .then((res) =>{
       this.setState({
-        mealName: res.data.meals.name,
-        ingredients: res.data.meals.ingredients,
-        totalCal: res.data.meals.totalCal
+       mealCards: res.data.meals
       })
     })
   }
@@ -39,19 +36,19 @@ export default class Dashboard extends Component {
 
   getTotalCalorie = () => {
     const { mealName, ingredients, user_id } = this.state;
-    axios.post(`${SERVER_URL}`, { mealName, ingredients, user_id }).then((res) => {
-      console.log(res.data)
-      this.setState({
-        totalCal: res.data.totalCal
-      });
-      axios.get(`${SERVER_URL}`)
-      .then((res) =>{
-        console.log(res.data)
-        this.setState({
-          totalCal: res.data.meals.totalCal
-        })
-      })
-    });
+    axios
+    .post(`${SERVER_URL}`, { mealName, ingredients, user_id })
+    .then((res) => {
+     console.log(res.data)
+    })
+    // //not bringing current meal
+    // .get(`${SERVER_URL}`)
+    //   .then((res) =>{
+    //     console.log(res.data.meals)
+    //     this.setState({
+    //       totalCal: res.data.meals.totalCal
+    //     })
+    //   })
   };
 
 
