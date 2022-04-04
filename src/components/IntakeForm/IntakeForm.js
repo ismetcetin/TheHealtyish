@@ -12,6 +12,7 @@ export default function IntakeForm({
   addNewIngr,
   updateState,
   mealCards,
+  getTotalCalorie
 }) {
   const inputRef = useRef();
 
@@ -28,6 +29,8 @@ export default function IntakeForm({
       totalCal,
     };
     updateState("mealCards", [...mealCards, mealCardData]);
+    getTotalCalorie();
+
     updateState("ingredients", []);
   }
 
@@ -50,7 +53,7 @@ export default function IntakeForm({
           </div>
         </div>
         <form className="form__calorie__container" onSubmit={handleMealCard}>
-          <label className="form__label">Meal</label>
+          <label className="form__calorie__label">Meal</label>
           <select
             name="meal"
             className="form__calorie__meal"
@@ -76,7 +79,7 @@ export default function IntakeForm({
               Dinner
             </option>
           </select>
-          <label className="form__label">Ingridient:</label>
+          <label className="form__calorie__label">Ingridient:</label>
           <input
             type="text"
             name="ingr"

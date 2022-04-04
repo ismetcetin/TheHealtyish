@@ -6,8 +6,7 @@
   position: relative;
 
   @include tablet {
-    width: 20%;
-    min-width: 29rem;
+    width:32vw;
   }
   &__wrapper {
     box-sizing: border-box;
@@ -40,14 +39,9 @@
 
   &__info {
     margin: 1rem 0;
-    padding: 1rem 2rem;
+    padding: 1rem;
     border: 1px dotted red;
 
-    @include tablet {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem;
-    }
 
     &--text {
       font-weight: 600;
@@ -56,8 +50,8 @@
   }
 
   &__btn {
-      margin-bottom: 1rem;
-      border: 1px solid orange;
+    margin-bottom: 1rem;
+    border: 1px solid orange;
     border-radius: 10px;
     height: 1.3rem;
     font-weight: 600;
@@ -79,15 +73,21 @@
       }
 
       @include tablet {
-        top: 266px;
-        right: 40px;
+        top: 302px;
+        right: 1rem;
       }
     }
   }
 
-  &__ing{
+  &__ing {
     font-size: 1.1rem;
     width: 50%;
     background-color: #bed2c4;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
   }
 }

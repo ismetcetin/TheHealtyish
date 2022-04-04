@@ -1,0 +1,17 @@
+@use '../../styles/mixins' as *;
+
+.mealcard{
+  box-sizing: border-box;
+  background-color: #f4f1f1;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid orange;
+  border-radius: 10px;
+  width: 32vw;
+
+  &__title{
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.5rem;
+  }
+}

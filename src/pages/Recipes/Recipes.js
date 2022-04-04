@@ -41,7 +41,7 @@ export default function Recipes() {
   };
 
   return (
-    <div className="App">
+    <div className="recipes__wrapper">
       <h1>Search Healtyish Recipes</h1>
       <form onSubmit={onSubmit} className="search-form">
         {alert !== "" && <Alert alert={alert} />}
