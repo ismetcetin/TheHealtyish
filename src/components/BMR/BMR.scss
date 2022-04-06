@@ -91,6 +91,12 @@
     background-color: orange;
     box-sizing: content-box;
     border-radius: 1.25rem;
+    border: none;
+    cursor: pointer;
+    &:hover{
+      height: 1.5rem;
+      transition: 0.4s;
+    }
     &--calorie{
       width: 100%;
     }

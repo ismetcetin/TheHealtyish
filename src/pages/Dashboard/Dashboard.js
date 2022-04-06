@@ -11,46 +11,46 @@ const SERVER_URL = "http://localhost:8080/dashboard/1";
 export default class Dashboard extends Component {
   state = {
     user_id: "1",
-    meals:[],
-    ingredients:[],
-    totalCalIntake: 0,
+    ingredients: [],
     bmr: 0,
-    calDeficit: 0,
+    dcn: 0,
+    calIntake: 0,
     mealCards: [],
+    name:"",
   };
 
-  componentDidMount(){
-    
-    axios.get(`${SERVER_URL}`)
-    .then((res) =>{
-      this.setState({
-       mealCards: res.data.meals
-      })
-    })
+  // [asd, asd,aasd,asd ] => 12
+  setCalIntake(state) {
+    const calIntake = state.mealCards.reduce((prev, current) => {
+      prev += current.totalCal;
+      return prev;
+    }, 0);
+
+    this.setState({ calIntake }); 
   }
 
-  // componentDidUpdate({
+  componentDidMount() {
+    axios.get(`${SERVER_URL}`).then((res) => {
+      this.setState({
+        mealCards: res.data.meals,
+        name: res.data.name
+      });
 
-  // })
+      this.setCalIntake(this.state);
+    });
+  }
 
 
   getTotalCalorie = () => {
     const { mealName, ingredients, user_id } = this.state;
     axios
-    .post(`${SERVER_URL}`, { mealName, ingredients, user_id })
-    .then((res) => {
-     console.log(res.data)
-    })
-    // //not bringing current meal
-    // .get(`${SERVER_URL}`)
-    //   .then((res) =>{
-    //     console.log(res.data.meals)
-    //     this.setState({
-    //       totalCal: res.data.meals.totalCal
-    //     })
-    //   })
-  };
-
+      .post(`${SERVER_URL}`, { mealName, ingredients, user_id })
+      .then((res) => {
+        console.log("getTotatlCalorie", res.data);
+        this.setState({ mealCards: res.data[0].meals}); 
+        this.setCalIntake(this.state);
+      });
+    };
 
   addNewIngr = (ingr) => {
     this.setState({
@@ -64,6 +64,20 @@ export default class Dashboard extends Component {
     });
   };
 
+  getCalorieIntake = (sumCal) => {
+    this.setState({
+      calIntake : sumCal
+    });
+  };
+
+  changeBMR = (newValue) => {
+    this.setState({ bmr: newValue });
+  };
+  
+  changeDCN = (newValue) => {
+    this.setState({ dcn: newValue });
+  };
+
   updateState = (stateField, newValue) => {
     this.setState({
       [stateField]: newValue,
@@ -73,7 +87,7 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        <BMR />
+        <BMR changeBMR={this.changeBMR} changeDCN={this.changeDCN}/>
         <IntakeForm
           {...this.state}
           getTotalCalorie={this.getTotalCalorie}
@@ -81,10 +95,12 @@ export default class Dashboard extends Component {
           addMealName={this.addMealName}
           updateState={this.updateState}
         />
-        <section className="mealcard__wrapper">{this.state.mealCards.map((mealCard) => (
-          <MealCard key={uuidv4()} {...mealCard} />
-        ))}</section>
-      </div> 
+        <section className="mealcard__wrapper">
+          {this.state.mealCards.map((mealCard) => (
+            <MealCard key={uuidv4()} {...mealCard} getCalorieIntake={this.getCalorieIntake}/>
+          ))}
+        </section>
+      </div>
     );
   }
 }

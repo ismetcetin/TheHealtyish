@@ -8,7 +8,7 @@ class bmr extends Component {
     heightFeet: "",
     heightInches: "",
     activity: "",
-    bmr: "", // stands for Basal Metabolic Rate
+    bmr: 0, // stands for Basal Metabolic Rate
     dcn: 0, // stands for Daily Calorie Needs
   };
 
@@ -42,7 +42,6 @@ class bmr extends Component {
     let heightFeet = this.state.heightFeet;
     let heightInches = this.state.heightInches;
     let weight = this.state.weight;
-    // let weightType = this.state.weightType;
 
     if (
       age === "" ||
@@ -70,6 +69,7 @@ class bmr extends Component {
       bmrCalc = 655.1 + 4.35 * weight + 1.85 * height - 4.676 * age;
     }
 
+    this.props.changeBMR(Math.floor(bmrCalc));
     this.setState({ bmr: bmrCalc });
     this.setState({ error: "" });
   }
@@ -77,15 +77,11 @@ class bmr extends Component {
   calculateKCalories() {
     let resultDCN;
     if (this.state.activity) {
-      resultDCN = ( 
-        <div className="form__result--DCN">  
-          {Math.floor(this.state.bmr * this.state.activity)} Calories/day
-        </div>
-      );
+      resultDCN = parseFloat(Math.floor(this.state.bmr * this.state.activity));
     }
+    this.props.changeDCN(resultDCN);
     this.setState({ dcn: resultDCN });
   }
-
   render() {
     let error;
     if (this.state.error) {
@@ -94,18 +90,28 @@ class bmr extends Component {
 
     let resultBMR;
     if (this.state.bmr) {
-      resultBMR = <div className="form__result form__result--BMR">BMR = {Math.floor(this.state.bmr)} Calories/day</div>;
+      resultBMR = (
+        <div className="form__result form__result--BMR">
+          BMR = {Math.floor(this.state.bmr)} Calories/day
+        </div>
+      );
     }
 
     let resultDCN;
     if (this.state.dcn) {
-      resultDCN = <div className="form__result form__result--DCN">{this.state.dcn}</div>;
+      resultDCN = (
+        <div className="form__result form__result--DCN">
+          {this.state.dcn} Calories/day
+        </div>
+      );
     }
 
     return (
       <div className="bmr__form">
         <div className="bmr__form__wrapper">
-          <h2 className="bmr__form__title">BMR &amp; Daily Calorie Calculator</h2>
+          <h2 className="bmr__form__title">
+            BMR &amp; Daily Calorie Calculator
+          </h2>
           {error}
           <div className="bmr__form__inputwrap form__inputwrap--gender">
             <label className="bmr__form__label">Gender</label>
@@ -145,7 +151,9 @@ class bmr extends Component {
             />
           </div>
           <div className="bmr__form__inputwrap ">
-            <label className="bmr__form__label">Height in feet and inches</label>
+            <label className="bmr__form__label">
+              Height in feet and inches
+            </label>
             <div className="bmr__form__inputwrap--height">
               <input
                 type="number"
@@ -222,7 +230,9 @@ class bmr extends Component {
             >
               Calculate Calories
             </button>
-            <p className="bmr__form__label">Daily Calorie needs based on your activity level:</p> 
+            <p className="bmr__form__label">
+              Daily Calorie needs based on your activity level:
+            </p>
             {resultDCN}
           </div>
         </div>

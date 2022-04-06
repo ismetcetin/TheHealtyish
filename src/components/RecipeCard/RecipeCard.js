@@ -11,9 +11,9 @@ const RecipeCard = ({ recipe }) => {
       <h2 className="recipe__name">{label}</h2>
       <img src={image} alt={label} className="recipe__img" />
       <h3 className="recipe__cal">{Math.floor(parseFloat(calories))} kcal</h3>
-      <p className="serving">{serving} Servings</p>
+      <p className="recipe__serving">{serving} Servings</p>
       <a href={url} target="_blank"  className="recipe__link">
-        URL
+        Click to see full Recipe !
       </a>
       <button onClick={() => setShow(!show)} className="recipe__btn">Ingredients</button>
       {show && <RecipeDetail ingredients={ingredients} />}

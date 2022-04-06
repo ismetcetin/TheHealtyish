@@ -8,7 +8,7 @@ import './Recipes.scss'
 
 export default function Recipes() {
   
-  const [query, setQuery] = useState("tofu");
+  const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [alert, setAlert] = useState("");
 
@@ -41,9 +41,9 @@ export default function Recipes() {
   };
 
   return (
-    <div className="recipes__wrapper">
-      <h1>Search Healtyish Recipes</h1>
-      <form onSubmit={onSubmit} className="search-form">
+    <div className="recipes__page">
+      <h1 className="recipes__page__title"> - Search Healtyish Recipes -</h1>
+      <form onSubmit={onSubmit} className="recipes__page__searchform">
         {alert !== "" && <Alert alert={alert} />}
         <input
           type="text"
@@ -52,8 +52,9 @@ export default function Recipes() {
           value={query}
           autoComplete="off"
           placeholder="Search Food"
+          className="recipes__page__input"
         />
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search"  className="recipes__page__btn"/>
       </form>
       <div className="recipes">
         {recipes !== [] &&

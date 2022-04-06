@@ -5,17 +5,16 @@ export default function IntakeForm({
   bmr,
   dcn,
   totalCal,
-  deficit,
+  calIntake,
   mealName,
   ingredients,
   addMealName,
   addNewIngr,
   updateState,
   mealCards,
-  getTotalCalorie
+  getTotalCalorie,
 }) {
   const inputRef = useRef();
-
   function handleNewIngr() {
     addNewIngr(inputRef.current.value);
     inputRef.current.value = "";
@@ -40,15 +39,19 @@ export default function IntakeForm({
         <h2 className="form__calorie__title">Calorie Intake</h2>
         <div className="form__calorie__info">
           <div className="form__calorie__info--left">
-            <div className="form__calorie__info--text form__calorie__bmr">BMR: {bmr}</div>
-            <div className="form__calorie__info--text form__calorie__dcn">Daily Calorie Need: {dcn}</div>
+            <div className="form__calorie__info--text form__calorie__bmr">
+              BMR: {bmr} Calories/day
+            </div>
+            <div className="form__calorie__info--text form__calorie__dcn">
+              Daily Calorie Need: {dcn} Calories/day
+            </div>
           </div>
           <div className="form__calorie__info--right">
             <div className="form__calorie__info--text form__calorie__totalCal">
-              Total Calorie Intake: {totalCal}
+              Total Calorie Intake: {calIntake} Calories
             </div>
             <div className="form__calorie__info--text form__calorie__deficit">
-              Calorie Deficit: {deficit}
+              Calorie Deficit: {dcn - calIntake} Calories
             </div>
           </div>
         </div>
@@ -66,14 +69,11 @@ export default function IntakeForm({
             <option type="text" value="Breakfast">
               Breakfast
             </option>
-            <option type="text" value="Snack-1">
-              Snack-1
+            <option type="text" value="Snack">
+              Snack
             </option>
             <option type="text" value="Lunch">
               Lunch
-            </option>
-            <option type="text" value="Snack-2">
-              Snack-2
             </option>
             <option type="text" value="Dinner">
               Dinner
@@ -92,7 +92,9 @@ export default function IntakeForm({
           +
         </button>
         {ingredients.map((ingr) => (
-          <p key={ingr} className="form__calorie__ing">{ingr}</p>
+          <p key={ingr} className="form__calorie__ing">
+            {ingr}
+          </p>
         ))}
       </section>
     </div>
