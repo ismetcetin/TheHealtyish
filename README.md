@@ -1,6 +1,6 @@
 # The Healtyish
 
-<img src="./src/assets/images/Logo-bckgrnd.png" alt="Logo" width="80" height="80" align="center">
+<img src="./src/assets/images/Logo-bckgrnd.png" alt="Logo" width="120" height="120" align="center">
 
 
 
@@ -11,7 +11,7 @@ Powered by React on the frontend and NodeJs an the backend.
 
 ##Screenshot
 <div align="center">
-    <img src="./src/assets/images/theHealtyish" alt="Screenshot">
+    <img src="./src/assets/images/TheHealtyish.png" alt="Screenshot">
 </div>
 
 ## Installation
