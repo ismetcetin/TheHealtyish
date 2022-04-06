@@ -1,7 +1,7 @@
 # The Healtyish
-
+<div align="center">
 <img src="./src/assets/images/Logo-bckgrnd.png" alt="Logo" width="120" height="120" align="center">
-
+<div>
 
 
 ## About The Healtyish
@@ -62,7 +62,10 @@ Libraries used in the making of backend:
 
 ●	Dotenv
 
-The project also depend on external APIs. Please check <a>https://www.edamam.com/</a> 
+The project also depends on external APIs. Please check <a>https://www.edamam.com/</a> 
+
+
+## Next Phases
 
 Phase 2
 
