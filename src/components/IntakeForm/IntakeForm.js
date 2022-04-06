@@ -63,8 +63,8 @@ export default function IntakeForm({
             value={mealName}
             onChange={(e) => addMealName(e.target.value)}
           >
-            <option type="text" value="" disabled hidden>
-              Plese Select Your Meal...
+            <option type="text" value="" selected hidden disabled>
+             Please select your meal...
             </option>
             <option type="text" value="Breakfast">
               Breakfast

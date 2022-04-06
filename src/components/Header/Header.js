@@ -13,7 +13,7 @@ export default function Header() {
         </div>
         <div className="header__button-container">
           <NavLink
-            to="/Dashboard"
+            to="/dashboard"
             className={(isActive) =>
               "header__button" +
               " " +
