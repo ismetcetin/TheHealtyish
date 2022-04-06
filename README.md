@@ -1,7 +1,7 @@
 # The Healtyish
 <div align="center">
 <img src="./src/assets/images/Logo-bckgrnd.png" alt="Logo" width="120" height="120" align="center">
-<div>
+</div>
 
 
 ## About The Healtyish
