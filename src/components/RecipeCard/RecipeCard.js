@@ -12,7 +12,7 @@ const RecipeCard = ({ recipe }) => {
       <img src={image} alt={label} className="recipe__img" />
       <h3 className="recipe__cal">{Math.floor(parseFloat(calories))} kcal</h3>
       <p className="recipe__serving">{serving} Servings</p>
-      <a href={url} target="_blank"  className="recipe__link">
+      <a href={url} target="_blank"  without rel="noreferrer" className="recipe__link">
         Click to see full Recipe !
       </a>
       <button onClick={() => setShow(!show)} className="recipe__btn">Ingredients</button>

@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# The Healtyish
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="./src/assets/images/Logo-bckgrnd.png" alt="Logo" width="80" height="80" align="center">
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## About The Healtyish
+This is a calorie tracking app that allows you to calculate your BMR, Daily Calorie Needs based on your acticity level, your total calorie intake based on your meals and calorie deficit. Also, it gives you an opportunity to search some healty recipes according to food you have.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Powered by React on the frontend and NodeJs an the backend.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##Screenshot
+<div align="center">
+    <img src="./src/assets/images/theHealtyish" alt="Screenshot">
+</div>
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+After cloning the repos for client and server side, 
+the packages on both the server and client folders need to be installed.
 
-### `npm run build`
+```zsh
+  cd TheHealtyish/ && npm install
+  npm start
+```
+on a seperate CLI
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```zsh
+  cd TheHealtyishAPI/ && npm install 
+  npm run dev
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+nodemon is installed as a dev dependency to prevent the need to restart
+the server with every change.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+sample .env files can be used as a reference of the variables needed for
+full functionality.
 
-### `npm run eject`
+## Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Libraries used in the making of frontend: 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+●	React
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+●	React-Router
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+●	Sass
 
-## Learn More
+●	Uuid
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+●	Axios 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Libraries used in the making of backend:
 
-### Code Splitting
+●	Express
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+●	Uuid
 
-### Analyzing the Bundle Size
+●	Express-session
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+●	Cors
 
-### Making a Progressive Web App
+●	Dotenv
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The project also depend on external APIs. Please check <a>https://www.edamam.com/</a> 
 
-### Advanced Configuration
+Phase 2
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+•	Give Users extra powers like see/search history through a calander. 
 
-### Deployment
+•	Have a relational database to keep all users data. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+•	Make the website more responsive and have better UX design.
 
-### `npm run build` fails to minify
+•   Add Authorization/Authentication.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+•	Allow users to change their passwords and have email confirmation for forgotten passwords.
+
+•	A feedback form for potential problems and solutions.
+
+Phase 3
+
+• Convert it to mobile app with React Native.	

@@ -21,10 +21,9 @@ export default function Recipes() {
   const getData = async () => {
     if (query !== "") {
       const result = await axios.get(url);
-      if (result.data.count == 0) {
+      if (result.data.count === 0) {
         return setAlert("No food with such name");
       }
-      console.log(result.data)
       setRecipes(result.data.hits);
       setQuery("");
       setAlert("");

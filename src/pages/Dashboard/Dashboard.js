@@ -12,8 +12,8 @@ export default class Dashboard extends Component {
   state = {
     user_id: "1",
     ingredients: [],
-    bmr: 0,
-    dcn: 0,
+    bmr: 2150,
+    dcn: 3440,
     calIntake: 0,
     mealCards: [],
     name:"",

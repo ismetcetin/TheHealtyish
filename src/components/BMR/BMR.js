@@ -62,11 +62,12 @@ class bmr extends Component {
     let bmrCalc = 0;
     // Convert height to cm
     let height = heightFeet * 30.48 + heightInches * 2.54;
-
-    if (gender === 2) {
-      bmrCalc = 66.47 + 6.24 * weight + 5.003 * height - 6.755 * age;
+    let weightKG = weight * 0.453592;
+    
+    if (gender === "2") {
+      bmrCalc = 66.47 + (13.75 * weightKG) + (5.003 * height) - (6.75 * age);
     } else {
-      bmrCalc = 655.1 + 4.35 * weight + 1.85 * height - 4.676 * age;
+      bmrCalc = 655.1 + (9.563 * weightKG) + (1.85 * height) - (4.676 * age);
     }
 
     this.props.changeBMR(Math.floor(bmrCalc));
